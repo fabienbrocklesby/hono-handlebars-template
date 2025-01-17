@@ -1,0 +1,13 @@
+{
+	"tasks": {
+		"start": "deno run --allow-net --allow-read --allow-write --watch src/main.ts"
+	},
+	"compilerOptions": {
+		"lib": ["dom", "esnext"]
+	},
+	"imports": {
+		"hono/": "https://deno.land/x/hono@v4.6.16/",
+		"handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts",
+		"sqlite": "https://deno.land/x/sqlite@v3.7.0/mod.ts"
+	}
+}
