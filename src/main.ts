@@ -3,12 +3,7 @@
 import { Hono } from "../deps.ts";
 import { setupDB } from "./db.ts";
 import { setupTemplates } from "./render.ts";
-import { homeHandler } from "../handlers/home.ts";
-import {
-	getItemsHandler,
-	createItemHandler,
-	itemsPageHandler,
-} from "../handlers/items.ts";
+import routes from "../routes/routes.ts";
 
 const app = new Hono();
 
@@ -16,11 +11,7 @@ const app = new Hono();
 await setupTemplates();
 setupDB();
 
-// Routes
-app.get("/", homeHandler);
-app.get("/items", itemsPageHandler);
-app.get("/api/items", getItemsHandler);
-app.post("/api/items", createItemHandler);
+app.route("/", routes);
 
 Deno.serve({ port: 8000 }, app.fetch);
 console.log("Server running at http://localhost:8000");
