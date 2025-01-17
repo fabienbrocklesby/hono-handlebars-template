@@ -1,24 +1,24 @@
-import { DB } from "https://deno.land/x/sqlite/mod.ts";
+import { Database } from "../deps.ts";
 
-export const db = new DB("./db/database.sqlite");
+export const db = new Database("./db/database.sqlite");
 
 export function setupDB() {
-	db.execute(`
+	const stmt = db.prepare("PRAGMA journal_mode=WAL;");
+	const [journalMode] = stmt.value<[string]>()!;
+	stmt.finalize();
+
+	if (journalMode.toLowerCase() !== "wal") {
+		console.error(
+			`Failed to set journal mode to WAL. Current mode: ${journalMode}`
+		);
+		return;
+	}
+
+	db.exec(`
     CREATE TABLE IF NOT EXISTS items (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       description TEXT
-    )
+    );
   `);
-}
-
-export function fetchItems() {
-	return [...db.query("SELECT id, name, description FROM items")];
-}
-
-export function createItem(name: string, description: string) {
-	db.query("INSERT INTO items (name, description) VALUES (?, ?)", [
-		name,
-		description,
-	]);
 }

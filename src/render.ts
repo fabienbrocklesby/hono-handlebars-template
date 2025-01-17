@@ -1,7 +1,4 @@
-import {
-	Handlebars,
-	HandlebarsConfig,
-} from "https://deno.land/x/handlebars/mod.ts";
+import { Handlebars, HandlebarsConfig } from "../deps.ts";
 
 const hbsConfig: HandlebarsConfig = {
 	baseDir: "templates",

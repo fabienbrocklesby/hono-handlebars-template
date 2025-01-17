@@ -1,4 +1,4 @@
-import { Context } from "npm:hono";
+import { Context } from "../deps.ts";
 import { render } from "../src/render.ts";
 
 export function homeHandler(c: Context): Promise<Response> {

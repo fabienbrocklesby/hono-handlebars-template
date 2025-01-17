@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
 
-import { Hono } from "npm:hono";
+import { Hono } from "../deps.ts";
 import { setupDB } from "./db.ts";
 import { setupTemplates } from "./render.ts";
 import { homeHandler } from "../handlers/home.ts";
