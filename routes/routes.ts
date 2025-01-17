@@ -1,4 +1,4 @@
-import { Hono } from "../deps.ts";
+import { Hono } from "hono";
 import { homeHandler } from "../handlers/home.ts";
 import {
 	getItemsHandler,

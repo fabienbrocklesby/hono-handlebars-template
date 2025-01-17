@@ -1,4 +1,4 @@
-import { Context } from "../deps.ts";
+import { Context } from "hono";
 import { render } from "../src/render.ts";
 import { fetchItems, createItem } from "../models/model.ts";
 

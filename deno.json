@@ -6,8 +6,8 @@
 		"lib": ["dom", "esnext"]
 	},
 	"imports": {
-		"hono/": "https://deno.land/x/hono@v4.6.16/",
-		"handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts",
-		"sqlite": "https://deno.land/x/sqlite@v3.7.0/mod.ts"
+		"sqlite": "jsr:@db/sqlite@^0.12.0",
+		"hono": "jsr:@hono/hono@^4.6.16",
+		"handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts"
 	}
 }

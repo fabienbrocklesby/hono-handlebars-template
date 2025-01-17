@@ -1,4 +1,4 @@
-import { Database } from "../deps.ts";
+import { Database } from "sqlite";
 
 export const db = new Database("./db/database.sqlite");
 

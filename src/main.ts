@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
 
-import { Hono } from "../deps.ts";
+import { Hono } from "hono";
 import { setupDB } from "./db.ts";
 import { setupTemplates } from "./render.ts";
 import routes from "../routes/routes.ts";

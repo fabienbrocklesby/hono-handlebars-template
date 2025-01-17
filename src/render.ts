@@ -1,4 +1,4 @@
-import { Handlebars, HandlebarsConfig } from "../deps.ts";
+import { Handlebars, HandlebarsConfig } from "handlebars";
 
 const hbsConfig: HandlebarsConfig = {
 	baseDir: "templates",
