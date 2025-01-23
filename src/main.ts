@@ -1,7 +1,8 @@
 /// <reference lib="deno.ns" />
 
 import { Hono } from "hono";
-import { setupDB } from "./db.ts";
+import { serveStatic } from "hono/deno";
+import { setupDB } from "../db/connection.ts";
 import { setupTemplates } from "./render.ts";
 import routes from "../routes/routes.ts";
 
@@ -11,6 +12,7 @@ const app = new Hono();
 await setupTemplates();
 setupDB();
 
+app.use("/public/*", serveStatic({ root: "./" }));
 app.route("/", routes);
 
 Deno.serve({ port: 8000 }, app.fetch);

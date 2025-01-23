@@ -1,4 +1,4 @@
-import { db } from "../src/db.ts";
+import { db } from "../db/connection.ts";
 
 interface Item {
 	id: number;

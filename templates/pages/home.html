@@ -1,0 +1,33 @@
+{{> header }}
+
+<h1>{{title}}</h1>
+<p>{{content}}</p>
+
+{{#if items}}
+<ul>
+  {{#each items}}
+  <li>{{this.name}}: {{this.description}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+<h1>Submit a New Item</h1>
+<form hx-post="/api/items" hx-trigger="submit" hx-target="#response" hx-on="htmx:afterRequest: resetForm()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  <br>
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" required></textarea>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+<div id="response"></div>
+
+<script>
+  function resetForm() {
+    console.log('resetting form');
+    document.querySelector('form').reset();
+  }
+
+  document.querySelector('form').addEventListener('htmx:afterRequest', resetForm);
+</script>
