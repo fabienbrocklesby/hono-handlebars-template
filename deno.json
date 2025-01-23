@@ -2,6 +2,7 @@
 	"imports": {
 		"sqlite": "jsr:@db/sqlite@^0.12.0",
 		"hono": "jsr:@hono/hono@^4.6.16",
+		"hono-sessions": "npm:hono-sessions",
 		"handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts",
 		"bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
 		"tailwindcss": "npm:tailwindcss@latest",

@@ -9,9 +9,14 @@ import {
 	registerPageHandler,
 	createUserHandler,
 } from "../handlers/registerUser.ts";
+import { loginPageHandler, loginUserHandler } from "../handlers/loginUser.ts";
+import { logoutHandler } from "../handlers/logoutUser.ts";
+
+import { authMiddleware } from "../middleware/authentication.ts";
 
 const routes = new Hono()
 	// home
+	.use("/", authMiddleware)
 	.get("/", homeHandler)
 
 	// items
@@ -21,6 +26,13 @@ const routes = new Hono()
 
 	// register
 	.get("/register", registerPageHandler)
-	.post("/api/register", createUserHandler);
+	.post("/api/register", createUserHandler)
+
+	// login
+	.get("/login", loginPageHandler)
+	.post("/api/login", loginUserHandler)
+
+	// logout
+	.get("/logout", logoutHandler);
 
 export default routes;
