@@ -12,7 +12,7 @@ const app = new Hono();
 await setupTemplates();
 setupDB();
 
-app.use("/public/*", serveStatic({ root: "./" }));
+app.use("/*", serveStatic({ root: "./static/" }));
 app.route("/", routes);
 
 Deno.serve({ port: 8000 }, app.fetch);

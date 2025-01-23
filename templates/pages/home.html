@@ -1,7 +1,7 @@
 {{> header }}
-
 <h1>{{title}}</h1>
 <p>{{content}}</p>
+
 
 {{#if items}}
 <ul>
@@ -11,23 +11,15 @@
 </ul>
 {{/if}}
 
-<h1>Submit a New Item</h1>
-<form hx-post="/api/items" hx-trigger="submit" hx-target="#response" hx-on="htmx:afterRequest: resetForm()">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required>
-  <br>
-  <label for="description">Description:</label>
-  <textarea id="description" name="description" required></textarea>
-  <br>
-  <button type="submit">Submit</button>
-</form>
-<div id="response"></div>
-
-<script>
-  function resetForm() {
-    console.log('resetting form');
-    document.querySelector('form').reset();
-  }
-
-  document.querySelector('form').addEventListener('htmx:afterRequest', resetForm);
-</script>
+<div class="card bg-base-100 w-96 shadow-xl">
+  <figure>
+    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">Shoes!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>

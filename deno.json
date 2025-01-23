@@ -1,15 +1,16 @@
 {
-	"tasks": {
-		"start": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --watch src/main.ts",
-		"tailwind": "./bin/tailwindcss -i ./src/input.css -o ./public/css/output.css --watch"
-	},
-	"compilerOptions": {
-		"lib": ["dom", "esnext"]
-	},
 	"imports": {
 		"sqlite": "jsr:@db/sqlite@^0.12.0",
 		"hono": "jsr:@hono/hono@^4.6.16",
 		"handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts",
-		"bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts"
-	}
+		"bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
+		"tailwindcss": "npm:tailwindcss@latest",
+		"daisyui": "npm:daisyui@beta"
+	},
+	"tasks": {
+		"start": "deno run -A --watch ./src/main.ts",
+		"tailwind:watch": "tailwindcss -i ./static/css/main.css -o ./static/css/output.css --watch",
+		"dev": "deno task tailwind:watch & deno task start"
+	},
+	"nodeModulesDir": "auto"
 }
