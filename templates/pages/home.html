@@ -1,10 +1,10 @@
-{{> header }}
-<h1>{{title}}</h1>
+<h1 class="text-4xl">{{title}}</h1>
 <p>{{content}}</p>
 
+<p class="mt-4 underline">Hello, {{ user.name }}</p>
 
 {{#if items}}
-<ul>
+<ul class="mt-6">
   {{#each items}}
   <li>{{this.name}}: {{this.description}}</li>
   {{/each}}

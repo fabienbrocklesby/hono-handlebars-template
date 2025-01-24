@@ -6,4 +6,6 @@ export const MESSAGES = {
 	REGISTRATION_SUCCESS:
 		'<p class="text-green-500">User created successfully.</p>',
 	USER_EXISTS: '<p class="text-red-500">Username or email already exists.</p>',
+	UNAUTHORIZED: '<p class="text-red-500">Unauthorized.</p>',
+	USER_NOT_FOUND: '<p class="text-red-500">User not found.</p>',
 };

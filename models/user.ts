@@ -34,6 +34,31 @@ export function getUserByEmail(email: string): User | undefined {
 }
 
 /**
+ * Retrieves a user from the database by their ID.
+ *
+ * @param id - The ID of the user.
+ * @returns A promise that resolves to the User object if found, or undefined if not found.
+ */
+export function getUserById(id: number): User | undefined {
+	const stmt = db.prepare(`
+		SELECT id, username, email, password_hash, created_at
+		FROM users
+		WHERE id = ?
+		LIMIT 1
+	`);
+
+	try {
+		const result = stmt.get([id]) as User | undefined;
+		return result;
+	} catch (error) {
+		console.error(`Error fetching user by ID (${id}):`, error);
+		throw new Error("Failed to retrieve user.");
+	} finally {
+		stmt.finalize();
+	}
+}
+
+/**
  * Creates a new user in the database.
  *
  * @param username - The username of the new user.
