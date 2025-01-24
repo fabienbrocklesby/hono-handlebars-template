@@ -5,6 +5,7 @@
 		"hono-sessions": "npm:hono-sessions",
 		"handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts",
 		"bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
+		"zod": "https://deno.land/x/zod@v3.24.1/mod.ts",
 		"tailwindcss": "npm:tailwindcss@latest",
 		"daisyui": "npm:daisyui@beta"
 	},

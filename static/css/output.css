@@ -1469,6 +1469,12 @@
   .text-red-500 {
     color: var(--color-red-500);
   }
+  .lowercase {
+    text-transform: lowercase;
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
   .opacity-70 {
     opacity: 70%;
   }
